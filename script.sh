@@ -2,8 +2,8 @@
 
 mkdir -p /etc/domain-detective
 
-if [ -f domains.txt ]; then
-  cp domains.txt /etc/domain-detective/domains.txt
+if [ ! -f /etc/domain-detective/domains.txt ]; then
+  touch /etc/domain-detective/domains.txt
 fi
 
 readarray -t domains < /etc/domain-detective/domains.txt
