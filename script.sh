@@ -1,6 +1,12 @@
 #!/bin/bash
 
-readarray -t domains < domains.txt
+mkdir -p /etc/domain-detective
+
+if [ -f domains.txt ]; then
+  cp domains.txt /etc/domain-detective/domains.txt
+fi
+
+readarray -t domains < /etc/domain-detective/domains.txt
 
 function check_domain {
   domain=$1
