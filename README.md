@@ -6,15 +6,20 @@ domain-detective is for a list of your domains that checks them after opening te
 $ git clone git@github.com:the-pesar/domain-detective.git
 # git clone https://github.com/the-pesar/domain-detective.git
 ```
-### 3. Add your domain into `domains.txt`
-    Note: You can edit this file whenever you want from `/etc/domain-detective/domains.txt`.
-
-Go to the cloned repository and push your domains in `script.sh` file.
-#### 4. Install `whois`:
+#### 2. Install `whois`:
 ```bash
 $ sudo apt install whois && sudo apt update
 ```
-#### 5. Set execution permission and register in `~/.bashrc`:
+Go to the cloned repository 
+#### 3. Set execution permission and run `setup.sh`
 ```bash
-$ chmod +x script.sh && echo "source $PWD/script.sh" >> ~/.bashrc
+$ chmod +x setup.sh script.sh && sudo ./setup.sh
+```
+#### 4. Add your domains into `domains.txt`
+```bash
+$ sudo nano /etc/domain-detective/domains.txt
+```
+#### 5. Register the script in `~/.bashrc`:
+```bash
+$ echo "source $PWD/script.sh" >> ~/.bashrc
 ```
