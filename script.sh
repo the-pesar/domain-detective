@@ -1,15 +1,12 @@
 #!/bin/bash
 
-# replace your domains
-domains=(
-  example.ir
-  just-for-test.com
-  domain.org
-  just-for-test.shop
-  just-for-test.me
-  test.info
-  world.co
-)
+mkdir -p /etc/domain-detective
+
+if [ -f domains.txt ]; then
+  cp domains.txt /etc/domain-detective/domains.txt
+fi
+
+readarray -t domains < /etc/domain-detective/domains.txt
 
 function check_domain {
   domain=$1
