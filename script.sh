@@ -1,15 +1,6 @@
 #!/bin/bash
 
-# replace your domains
-domains=(
-  example.ir
-  just-for-test.com
-  domain.org
-  just-for-test.shop
-  just-for-test.me
-  test.info
-  world.co
-)
+readarray -t domains < domains.txt
 
 function check_domain {
   domain=$1

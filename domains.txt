@@ -1,0 +1,7 @@
+example.ir
+just-for-test.com
+domain.org
+just-for-test.shop
+just-for-test.me
+test.info
+world.co
