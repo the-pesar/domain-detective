@@ -1,15 +1,18 @@
-#!/bin/bash
+#!/bin/sh
 
-readarray -t domains < /etc/domain-detective/domains.txt
+input_file="$HOME/domain-detective/domain_list.txt"
+output_file="$HOME/domain-detective/available_domains.txt"
 
-function check_domain {
-  domain=$1
-  status=$(whois $domain | grep -E '\b(?:404|No match for domain|Domain not found|No Data Found|DOMAIN NOT FOUND|no entries found)\b')
-  if [[ -n "$status" ]]; then
-    echo "domain $domain is available!"
+>"$output_file"
+
+check_domain() {
+  domain="$1"
+  status=$(whois "$domain" | grep -E -i '(404|No match for domain|Domain not found|No Data Found|DOMAIN NOT FOUND|no entries found)($|\W)')
+  if [ -n "$status" ]; then
+    echo "$domain" >>$output_file
   fi
 }
 
-for domain in "${domains[@]}"; do
+while IFS= read -r domain; do
   check_domain "$domain"
-done
+done <"$input_file"
