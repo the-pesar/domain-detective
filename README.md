@@ -22,9 +22,13 @@ $ chmod +x setup.sh script.sh && ./setup.sh
 ```
 #### 4. Add your domains into domain list:
 ```bash
-$ echo "your-domain.com" >> ~/domain-detective/domain_list.txt
+$ echo "your-rand0m-domain.com" >> ~/domain-detective/domain_list.txt
 ```
 #### 5. Run the script for first time:
 ```bash
 $ ./script.sh
+```
+#### 6. Reload your terminal:
+```bash
+$ source ~/.bashrc
 ```
