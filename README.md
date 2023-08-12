@@ -18,7 +18,7 @@ $ sudo apt install cron && sudo systemctl enable cron
 Go to the cloned repository 
 #### 3. Set execution permission and run `setup.sh`
 ```bash
-$ chmod +x setup.sh script.sh && sh ./setup.sh
+$ chmod +x setup.sh script.sh && ./setup.sh
 ```
 #### 4. Add your domains into domain list:
 ```bash
@@ -26,5 +26,5 @@ $ echo "your-domain.com" >> ~/domain-detective/domain_list.txt
 ```
 #### 5. Run the script for first time:
 ```bash
-$ sh ./script.sh
+$ ./script.sh
 ```
