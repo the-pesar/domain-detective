@@ -1,25 +1,30 @@
 # domain-detective
-domain-detective is for a list of your domains that checks them after opening terminal, and if a domain is open, it will inform you.
+domain-detective is for a list of your domains that checks them hourly, and if a domain was open, it will inform you.
 ## installation
 #### 1. Clone this repository on your system:
 ```bash
 $ git clone git@github.com:the-pesar/domain-detective.git
 # git clone https://github.com/the-pesar/domain-detective.git
 ```
-#### 2. Install `whois`:
+#### 2. Install `whois` and `crontab`:
+`whois`:
 ```bash
-$ sudo apt install whois && sudo apt update
+$ sudo apt install whois
+```
+`crontab`:
+```bash
+$ sudo apt install cron && sudo systemctl enable cron
 ```
 Go to the cloned repository 
 #### 3. Set execution permission and run `setup.sh`
 ```bash
-$ chmod +x setup.sh script.sh && sudo ./setup.sh
+$ chmod +x setup.sh script.sh && sh ./setup.sh
 ```
-#### 4. Add your domains into `domains.txt`
+#### 4. Add your domains into domain list:
 ```bash
-$ sudo nano /etc/domain-detective/domains.txt
+$ echo "your-domain.com" >> ~/domain-detective/domain_list.txt
 ```
-#### 5. Register the script in `~/.bashrc`:
+#### 5. Run the script for first time:
 ```bash
-$ echo "source $PWD/script.sh" >> ~/.bashrc
+$ sh ./script.sh
 ```
